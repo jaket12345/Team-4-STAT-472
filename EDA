@@ -1,6 +1,6 @@
 ## Jacob Thomspon EDA w/ 2020 presidential voting data (archive.zip) -> voting.csv
 
-# paired barplot with D vs R results by State
+## Paired Barplot D vs R results by State 2020
 barplot(cbind(voting_2020$trump_vote, voting_2020$biden_vote) ~ voting_2020$state_abr,
         col = c("Red","Blue"),
         las=2,
@@ -11,3 +11,17 @@ barplot(cbind(voting_2020$trump_vote, voting_2020$biden_vote) ~ voting_2020$stat
         cex.axis = .8,
         beside = TRUE)
 legend("topright", legend = c("Trump","Biden"), fill = c("Red", "Blue"))
+
+# Kable Table Comparing Each Candidates best state
+## Creating dsta frame for Table
+raw_vote_pct <- data.frame(voting_2020$state,voting_2020$trump_pct,voting_2020$biden_pct)
+
+table_trump <- raw_vote_pct %>%
+  arrange(desc(raw_vote_pct$voting_2020.trump_pct)) %>%
+  slice(1:5) %>%
+  kable(col.names = c("State","Trump %","Biden %"))
+
+table_biden <- raw_vote_pct %>%
+  arrange(desc(raw_vote_pct$voting_2020.biden_pct)) %>%
+  slice(1:5) %>%
+  kable(col.names = c("State","Trump %","Biden %"))
