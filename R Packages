@@ -1,3 +1,4 @@
 # useful packages
 library(USAboundaries)
 library(leaflet)
+library(maps)
