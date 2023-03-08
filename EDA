@@ -1,4 +1,4 @@
-## Jacob Thomspon RDA w/ 2020 presidential voting data (archive.zip) -> voting.csv
+## Jacob Thomspon EDA w/ 2020 presidential voting data (archive.zip) -> voting.csv
 
 # paired barplot with D vs R results by State
 barplot(cbind(voting_2020$trump_vote, voting_2020$biden_vote) ~ voting_2020$state_abr,
